@@ -3,7 +3,7 @@ public class ArrayAverage {
     // private static Object[] arr = new Object[] {};
     private static Object[] arr = {1, 2, 3, 4, 5, 0};
 
-    public static void main(String[] args) {
+    public static void calculate() {
         int sum = 0;
         boolean noErrors = true;
 
