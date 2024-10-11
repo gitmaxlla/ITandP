@@ -2,10 +2,11 @@ import java.util.regex.*;
 
 public class UpperAfterLower {
     public static void main(String[] args) {
-        String text = "fruit appleJuice SomeText";
-        Pattern pattern = Pattern.compile("[a-z][A-Z]");
-        Matcher matcher = pattern.matcher(text);
-        text = matcher.replaceAll(match -> "!" + match.group() + "!");
-        System.out.println(text);
+        Pattern pattern = RegexInputChecker.getPattern("[a-z][A-Z]", false);
+        Matcher matcher = RegexInputChecker.matcherForInput(pattern);
+
+        if (matcher != null) {
+            System.out.println(matcher.replaceAll(match -> "!" + match.group() + "!"));
+        }
     }
 }

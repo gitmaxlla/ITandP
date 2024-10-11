@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        NumberFinder.main(null);
+        PasswordChecker.main(null);
+        UpperAfterLower.main(null);
+        IPChecker.main(null);
+        StartsWithLetter.main(null);
     }
 }
