@@ -55,7 +55,7 @@ public class ThirdTen {
     }
 
     public static boolean isStrangePair(String a, String b) {
-        return (a.equals(b) && a.isEmpty()) || (a.charAt(0) == b.charAt(b.length() - 1) && b.charAt(0) == a.charAt(a.length() - 1));
+        return (a. equals(b) && a.isEmpty()) || (a.charAt(0) == b.charAt(b.length() - 1) && b.charAt(0) == a.charAt(a.length() - 1));
     }
 
     public static Object[][] sale(Object[][] arr, double discount) {
@@ -140,7 +140,6 @@ public class ThirdTen {
                 start_index = i;
             }
         }
-
         return longest_substr;
     }
 

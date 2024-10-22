@@ -30,7 +30,7 @@ public class SecondTen {
         System.out.println(secondBiggest(new int[] {3, 5, 8, 1, 2, 4}));
         System.out.println();
 
-        System.out.println(localReverse("baobab", 'b'));
+        System.out.println(localReverse("baobaq", 'b'));
         System.out.println(localReverse("Hello, I'm under the water, please help me", 'e'));
         System.out.println();
 
@@ -190,9 +190,11 @@ public class SecondTen {
 
             if (original.charAt(i) == marker && i != original.length() - 1) {
                 int clauseLength = 1;
-                while (original.charAt(i + clauseLength) != marker) {
+                while (clauseLength < original.length() - i && original.charAt(i + clauseLength) != marker) {
                     ++clauseLength;
                 }
+
+                if (i + clauseLength == original.length()) continue;
 
                 String toReverse = original.substring(i + 1, i + clauseLength);
                 String reversed = "";
