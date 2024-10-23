@@ -16,7 +16,7 @@ public class Top10Words {
 
         Map<String, Integer> words = new HashMap<>();
 
-        scanner.findAll("[A-Za-z]{2,}").forEach(match -> {
+        scanner.findAll("[A-Za-z]{2,}|[Aa]").forEach(match -> {
             String word = match.group();
             if (!words.containsKey(word)) words.put(word, 1);
             else words.put(word, words.get(word) + 1);

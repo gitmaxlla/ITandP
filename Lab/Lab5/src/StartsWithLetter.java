@@ -8,8 +8,12 @@ public class StartsWithLetter {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            System.out.print("Input a character: ");
+            System.out.print("Input a letter: ");
             selected = scanner.next().toLowerCase().charAt(0);
+            if (!Character.isAlphabetic(selected)) {
+                noErrors = false;
+                System.out.println("Entered character is not a letter.");
+            }
         } catch (RuntimeException ex) {
             System.out.println("Error during input of a character: " + ex.getMessage());
             noErrors = false;
