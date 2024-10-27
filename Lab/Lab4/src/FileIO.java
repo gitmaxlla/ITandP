@@ -12,6 +12,13 @@ public class FileIO {
                 fout.write(buffer, 0, count);
             }
 
+            // EOFException
+            // if (fin.read(buffer) == -1) throw new EOFException();
+
+            // IOException
+            // fout.close();
+            // fout.write(new byte[] {1, 2, 3}, 0, 3);
+
         // UnsupportedOperationException ->
         } catch (ReadOnlyFileSystemException ex) {
             noErrors = false;

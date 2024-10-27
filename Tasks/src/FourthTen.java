@@ -1,5 +1,5 @@
+// https://github.com/gitmaxlla/ITandP — Github-репозиторий с работами
 import java.util.*;
-import java.util.function.BiFunction;
 
 public class FourthTen {
     public static void main(String[] args) {
@@ -177,7 +177,6 @@ public class FourthTen {
             number /= 10;
         }
 
-        result.append("M".repeat(number / 10));
         return result.reverse().toString();
     }
 
@@ -202,8 +201,24 @@ public class FourthTen {
     }
 
     public static String[] labirint(int[][] data) {
-        System.out.println(path(data.length - 1, data.length - 1, data));
-        return new String[] {"Прохода нет"};
+        ArrayList<String> paths = path(data.length - 1, data.length - 1, data);
+        Integer bestLength = Integer.MAX_VALUE;
+        String bestPath = "";
+
+        for (String path : paths) {
+            List<Integer> visits = Arrays.stream(path.split("-")).map(Integer::valueOf).toList();
+            if (visits.size() == data.length * 2 - 1) {
+                int sum = 0;
+                for (int i : visits) sum += i;
+                if (sum < bestLength) {
+                    bestLength = sum;
+                    bestPath = path;
+                }
+            }
+        }
+
+        if (bestPath.isEmpty()) return new String[] {"Прохода нет"};
+        return new String[] {bestPath, String.valueOf(bestLength)};
     }
 
     public static ArrayList<String> path(int x, int y, int[][] data) {
