@@ -15,6 +15,8 @@ public class MovingStocks {
         int totalWeight = 0;
         ArrayList<Double> collectedItems = new ArrayList<>();
 
+        if (array.isEmpty()) return;
+
         while (totalWeight + array.getFirst() <= MAX_CAPACITY) {
             collectedItems.add(array.getFirst());
             totalWeight += array.removeFirst();
