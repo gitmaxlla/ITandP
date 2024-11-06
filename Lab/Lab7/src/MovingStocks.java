@@ -33,7 +33,7 @@ public class MovingStocks {
         LinkedList<Double> transferList = itemsWeight;
         CountDownLatch workersBusy = new CountDownLatch(3);
 
-        try (ExecutorService executorService = Executors.newFixedThreadPool(3);) {
+        try (ExecutorService executorService = Executors.newFixedThreadPool(3)) {
             List<Runnable> workerJobs = new ArrayList<>();
             Runnable transferItems = () -> {
                 try {
