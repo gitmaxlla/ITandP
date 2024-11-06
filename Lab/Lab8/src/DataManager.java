@@ -1,4 +1,3 @@
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -48,18 +47,14 @@ public class DataManager {
                 result.add(obj.getClass().getCanonicalName());
 
                 for (Method method : methods) {
-                    try {
-                        if (method.getAnnotation(DataProcessor.class).value() != DataProcessor.Type.IGNORE)
-                        {
-                            result.add("\n\t" + method.getAnnotation(DataProcessor.class).value().toString());
-                            result.add(method.getName());
-                            result.add((String) method.invoke(obj, data));
-                        }
-                        else {
-                            method.invoke(obj, data);
-                        }
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                    if (method.getAnnotation(DataProcessor.class).value() != DataProcessor.Type.IGNORE)
+                    {
+                        result.add("\n\t" + method.getAnnotation(DataProcessor.class).value().toString());
+                        result.add(method.getName());
+                        result.add((String) method.invoke(obj, data));
+                    }
+                    else {
+                        method.invoke(obj, data);
                     }
                 }
 
@@ -72,7 +67,6 @@ public class DataManager {
         if (!results.isEmpty()) this.result.add(results.getFirst().get().toString());
         for(int i = 1; i < results.size(); i++) this.result.add("\n" + results.get(i).get().toString());
 
-        executorService.shutdown();
         executorService.close();
     }
 
