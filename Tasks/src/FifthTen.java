@@ -33,6 +33,11 @@ public class FifthTen {
         System.out.println(longestRun(new int[] {3, 5, 7, 10, 15}));
         System.out.println();
 
+        System.out.println(takeDownAverage(new String[] {"95%", "83%", "90%", "87%", "88%", "93%"}));
+        System.out.println(takeDownAverage(new String[] {"10%"}));
+        System.out.println(takeDownAverage(new String[] {"53%", "79%"}));
+        System.out.println();
+
     }
 
     public static boolean sameLetterPattern(String a, String b) {
@@ -104,33 +109,37 @@ public class FifthTen {
     public static int longestRun(int[] numbers) {
         int maxLength = 0;
         int currentLength = 0;
-        boolean captureAscending = false;
+        boolean ascDesc = false; // false for descending
 
         for (int i = 0; i < numbers.length - 1; i++) {
             ++currentLength;
 
-            if ((numbers[i] + 1 == numbers[i + 1])) {
-                if (!captureAscending) {
-                    captureAscending = true;
+            if (Math.abs(numbers[i] - numbers[i + 1]) == 1) {
+                boolean nextAscDesc = numbers[i + 1] - numbers[i] == 1;
+
+                if (ascDesc != nextAscDesc) {
+                    ascDesc = !ascDesc;
                     maxLength = Math.max(maxLength, currentLength);
                     currentLength = 1;
                 }
                 else if (i == numbers.length - 2)
                     maxLength = Math.max(maxLength, currentLength + 1);
-            } else if ((numbers[i] - 1 == numbers[i + 1])) {
-                if (captureAscending) {
-                    captureAscending = false;
-                    maxLength = Math.max(maxLength, currentLength);
-                    currentLength = 1;
-                }
-                else if (i == numbers.length - 2)
-                    maxLength = Math.max(maxLength, currentLength + 1);
-            } else if (Math.abs(numbers[i] - numbers[i + 1]) != 1) {
+            } else {
                 maxLength = Math.max(maxLength, currentLength);
                 currentLength = 0;
             }
         }
 
         return maxLength;
+    }
+
+    public static String takeDownAverage(String[] input) {
+        int sum = 0;
+
+        for (String entry : input) {
+            sum += Integer.parseInt(entry.substring(0, entry.length() - 1));
+        }
+
+        return Math.round((((input.length + 1)*95*sum) / (100*input.length)) - sum) + "%";
     }
 }

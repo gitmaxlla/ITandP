@@ -12,7 +12,7 @@ public class DataManager {
     private ArrayList<String> result = new ArrayList<>();
 
     public void registerDataProcessor(Object processor) {
-        if (!Arrays.stream(processor.getClass().getMethods()).filter(method -> method.isAnnotationPresent(DataProcessor.class)).allMatch(method -> method.getParameterCount() == 1 && method.getParameters()[0].getType().getCanonicalName().equals("".getClass().getTypeName()) && method.getReturnType().getCanonicalName().equals("".getClass().getCanonicalName())))
+        if (!Arrays.stream(processor.getClass().getMethods()).filter(method -> method.isAnnotationPresent(DataProcessor.class)).allMatch(method -> method.getParameterCount() == 1 && method.getParameters()[0].getType().getCanonicalName().equals("".getClass().getCanonicalName()) && method.getReturnType().getCanonicalName().equals("".getClass().getCanonicalName())))
             throw new IllegalArgumentException("Every @DataProcessor method should return String and have single String parameter.");
         processors.add(processor);
     }

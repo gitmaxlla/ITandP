@@ -1,9 +1,5 @@
-import java.util.ArrayList;
 import java.util.regex.MatchResult;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StringPipeline {
     private String regex = ".";
