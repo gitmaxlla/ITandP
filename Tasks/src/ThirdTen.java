@@ -85,7 +85,7 @@ public class ThirdTen {
     public static String rps(String p1, String p2) {
         int score = p1.charAt(0) - p2.charAt(0);
         if (score == 0) return "Tie";
-        return " Player "  + (1 + ((score == 1 || score == 2 || score == -3) ? 1 : 0)) + " wins";
+        return "Player "  + (1 + ((score == 1 || score == 2 || score == -3) ? 1 : 0)) + " wins";
     }
 
     public static int bugger(int num) {
