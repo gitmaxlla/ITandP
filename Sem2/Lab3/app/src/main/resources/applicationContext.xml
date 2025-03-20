@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "Bean"
+		  class = "ru.gitmaxlla.itandp.Bean">
+		<constructor-arg value = "This is an XML Bean"/>
+	</bean>
+
+	<bean id = "EpicTable"
+		  class = "ru.gitmaxlla.itandp.TableLombokExample">
+		<constructor-arg name = "width" value = "100"/>
+		<constructor-arg name = "height" value = "100"/>
+		<constructor-arg name = "depth" value = "100"/>
+		<constructor-arg name = "price" value = "0.0"/>
+		<constructor-arg name = "mass" value = "0.0"/>
+		<constructor-arg name = "hardness" value = "100.0"/>
+		<constructor-arg name = "name" value = "Epic Table v1"/>
+		<constructor-arg name = "condition" value = "PROTOTYPE"/>
+		<constructor-arg name = "foldable" value = "true"/>
+		<constructor-arg name = "surfaceDurability" value = "100.0"/>
+		<constructor-arg name = "seatsNumber" value = "100"/>
+	</bean>
+
+	<bean id = "FurnitureItemOne"
+		  class = "ru.gitmaxlla.itandp.Furniture">
+		<constructor-arg name = "width" value = "10.0"/>
+		<constructor-arg name = "height" value = "5.0"/>
+		<constructor-arg name = "depth" value = "20.0"/>
+		<constructor-arg name = "price" value = "100.0"/>
+		<constructor-arg name = "mass" value = "50.0"/>
+		<constructor-arg name = "hardness" value = "20.0"/>
+		<constructor-arg name = "name" value = "Antique item"/>
+		<constructor-arg name = "usecase" value = "UNSPECIFIED"/>
+		<constructor-arg name = "condition" value = "ANTIQUE"/>
+	</bean>
+
+	<bean id = "FurnitureItemTwo"
+		  class = "ru.gitmaxlla.itandp.Furniture">
+		<constructor-arg name = "width" value = "50.0"/>
+		<constructor-arg name = "height" value = "50.0"/>
+		<constructor-arg name = "depth" value = "50.0"/>
+		<constructor-arg name = "price" value = "200.0"/>
+		<constructor-arg name = "mass" value = "100.0"/>
+		<constructor-arg name = "hardness" value = "100.0"/>
+		<constructor-arg name = "name" value = "Big box"/>
+		<constructor-arg name = "usecase" value = "SITTING"/>
+		<constructor-arg name = "condition" value = "BRAND_NEW"/>
+	</bean>
+</beans>

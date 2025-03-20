@@ -1,0 +1,13 @@
+[versions]
+spring-framework = "6.2.4"
+lombok = "8.12.2.1"
+junit-jupiter = "5.10.3"
+
+[libraries]
+spring-framework-context = { module = "org.springframework:spring-context", version.ref = "spring-framework" }
+spring-framework-core = { module = "org.springframework:spring-core", version.ref = "spring-framework" }
+spring-framework-beans = { module = "org.springframework:spring-beans", version.ref = "spring-framework" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+
+[plugins]
+lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
