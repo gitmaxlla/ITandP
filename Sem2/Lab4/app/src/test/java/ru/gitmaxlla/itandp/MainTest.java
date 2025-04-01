@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ChairTest {
+public class MainTest {
     private final static ClassPathXmlApplicationContext context =
             new ClassPathXmlApplicationContext("applicationContext.xml");
 
