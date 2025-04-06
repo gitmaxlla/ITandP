@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="ACheapButNiceChair"
+          class="ru.gitmaxlla.itandp.Chair">
+        <constructor-arg name="width" value="50.0"/>
+        <constructor-arg name="height" value="50.0"/>
+        <constructor-arg name="depth" value="50.0"/>
+        <constructor-arg name="price" value="10.0"/>
+        <constructor-arg name="mass" value="0.5"/>
+        <constructor-arg name="hardness" value="1.5"/>
+        <constructor-arg name="name" value="PrettyNice Chair v2.0"/>
+        <constructor-arg name="condition" value="BRAND_NEW"/>
+        <constructor-arg name="rollable" value="false"/>
+        <constructor-arg name="legsNumber" value="3"/>
+        <constructor-arg name="backHeight" value="0.0"/>
+    </bean>
+
+    <bean id="AVeryCheapTable"
+          class="ru.gitmaxlla.itandp.Table">
+        <constructor-arg name="width" value="150.0"/>
+        <constructor-arg name="height" value="100.0"/>
+        <constructor-arg name="depth" value="70.0"/>
+        <constructor-arg name="price" value="10.0"/>
+        <constructor-arg name="mass" value="1.0"/>
+        <constructor-arg name="hardness" value="1.0"/>
+        <constructor-arg name="name" value="VeryCheap Table v1.0"/>
+        <constructor-arg name="condition" value="STORE_SHELF"/>
+        <constructor-arg name="foldable" value="false"/>
+        <constructor-arg name="surfaceDurability" value="1.0"/>
+        <constructor-arg name="seatsNumber" value="2"/>
+    </bean>
+
+    <bean id = "CheapDiningSet"
+          class = "ru.gitmaxlla.itandp.DiningSet">
+        <constructor-arg name="contents">
+            <util:map>
+                <entry key-ref="ACheapButNiceChair" value="2"/>
+                <entry key-ref="AVeryCheapTable" value="1"/>
+            </util:map>
+        </constructor-arg>
+
+        <constructor-arg name="setDiscount" value="0.05"/>
+    </bean>
+</beans>
