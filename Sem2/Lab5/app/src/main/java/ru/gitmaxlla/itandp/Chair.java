@@ -2,9 +2,11 @@ package ru.gitmaxlla.itandp;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.EqualsAndHashCode;
+
 import java.util.Scanner;
 
-
+@EqualsAndHashCode
 @Getter @Setter
 public final class Chair implements Furniturable {
     private static final Scanner scanner = new Scanner(System.in);

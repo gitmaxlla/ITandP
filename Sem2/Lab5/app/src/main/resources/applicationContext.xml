@@ -2,10 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="ru.gitmaxlla.itandp"/>
 
     <bean id="ACheapButNiceChair"
           class="ru.gitmaxlla.itandp.Chair">
@@ -37,8 +42,8 @@
         <constructor-arg name="seatsNumber" value="2"/>
     </bean>
 
-    <bean id = "CheapDiningSet"
-          class = "ru.gitmaxlla.itandp.DiningSet">
+    <bean id="CheapDiningSet"
+          class="ru.gitmaxlla.itandp.DiningSet">
         <constructor-arg name="contents">
             <util:map>
                 <entry key-ref="ACheapButNiceChair" value="2"/>
@@ -46,6 +51,11 @@
             </util:map>
         </constructor-arg>
 
+        <constructor-arg name="setDiscount" value="0.05"/>
+    </bean>
+
+    <bean id="CheapDiningSetButAutowired"
+          class="ru.gitmaxlla.itandp.DiningSetAutowired">
         <constructor-arg name="setDiscount" value="0.05"/>
     </bean>
 </beans>

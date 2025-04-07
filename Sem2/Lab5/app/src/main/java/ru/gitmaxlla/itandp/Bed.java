@@ -2,9 +2,10 @@ package ru.gitmaxlla.itandp;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.EqualsAndHashCode;
 import java.util.Scanner;
 
-
+@EqualsAndHashCode
 @Getter @Setter
 public final class Bed implements Furniturable {
     private static final Scanner scanner = new Scanner(System.in);

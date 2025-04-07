@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class MainTest {

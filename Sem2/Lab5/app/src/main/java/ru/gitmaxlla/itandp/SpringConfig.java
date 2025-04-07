@@ -1,12 +1,30 @@
 package ru.gitmaxlla.itandp;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 
 @Configuration
+@ComponentScan("ru.gitmaxlla.itandp")
 public class SpringConfig {
+	@Bean(name = "ContentsForDiningSetAutowired")
+	public HashMap<Furniturable, Integer>
+	getContentsForCheapDiningTableAutowired() {
+		HashMap<Furniturable, Integer> contents = new HashMap<>();
+		contents.put(getACheapButNiceChair(), 2);
+		contents.put(getAVeryCheapTable(), 1);
+
+		return contents;
+	}
+
+	@Bean(name = "CheapDiningSetButAutowired")
+	public DiningSetAutowired getCheapDiningSetButAutowired() {
+		return new DiningSetAutowired(0.05);
+	}
+
+
 	@Bean(name = "CheapDiningSet")
 	public DiningSet getCheapDiningSet() {
 		HashMap<Furniturable, Integer> contents = new HashMap<>();
@@ -15,6 +33,7 @@ public class SpringConfig {
 
 		return new DiningSet(contents, 0.05);
 	}
+
 
 	@Bean(name = "AVeryCheapTable")
 	public Table getAVeryCheapTable() {
